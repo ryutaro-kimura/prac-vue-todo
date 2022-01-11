@@ -23,6 +23,17 @@ const app = new Vue({
     data: {
       todos: []
     },
+    watch: {
+      // オプションを使う場合はオブジェクト形式にする
+      todos: {
+        // 引数はウォッチしているプロパティの変更後の値
+        handler: function(todos) {
+          todoStorage.save(todos)
+        },
+        // deep オプションでネストしているデータも監視できる
+        deep: true
+      }
+    },
     methods: {
       // 使用するメソッド
       doAdd: function(event, value) {
