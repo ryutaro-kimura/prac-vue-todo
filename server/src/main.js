@@ -53,5 +53,9 @@ const app = new Vue({
         })
         comment.value = ''
       }
+    },
+    created() {
+      // インスタンス作成時に自動的に fetch() する
+      this.todos = todoStorage.fetch()
     }
   })
