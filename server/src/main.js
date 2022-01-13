@@ -53,6 +53,15 @@ const app = new Vue({
         })
         comment.value = ''
       }
+      // 状態変更の処理
+      toChangeState: function(item) {
+        item.state = item.state ? 0 : 1
+      },
+      // 削除の処理
+      doRemove: function(){
+        var index = this.todos.indexOf(item)
+        this.todo.splice(index, 1)
+      }
     },
     created() {
       // インスタンス作成時に自動的に fetch() する
